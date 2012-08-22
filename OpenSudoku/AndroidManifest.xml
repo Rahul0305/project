@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:installLocation="auto"
+    package="cz.romario.opensudoku"
+    android:versionCode="1105"
+    android:versionName="1.1.5" >
+
+    <uses-sdk
+        android:minSdkVersion="3"
+        android:targetSdkVersion="4" />
+
+    <application
+        android:icon="@drawable/opensudoku_logo_72"
+        android:label="@string/app_name" >
+        <activity
+            android:label="@string/app_name"
+            android:name=".gui.FolderListActivity" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".gui.SudokuListActivity" >
+        </activity>
+        <activity
+            android:label="@string/edit_sudoku"
+            android:name=".gui.SudokuEditActivity" >
+            <intent-filter >
+                <action android:name="android.intent.action.INSERT" />
+                <action android:name="android.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".gui.FileImportActivity"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+
+                <data
+                    android:host="*"
+                    android:pathPattern=".*\\.sdm"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
+                    android:pathPattern=".*\\.sdm"
+                    android:scheme="http" />
+                <data
+                    android:host="*"
+                    android:pathPattern=".*\\.opensudoku"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
+                    android:pathPattern=".*\\.opensudoku"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <!-- This activity is here to keep backward compatibility, use SudokuImportActivity instead. -->
+        <activity android:name=".gui.ImportSudokuActivity" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".gui.SudokuImportActivity"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" >
+                </action>
+
+                <category android:name="android.intent.category.DEFAULT" >
+                </category>
+                <category android:name="android.intent.category.BROWSABLE" >
+                </category>
+
+                <data android:mimeType="application/x-opensudoku" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".gui.SudokuExportActivity" >
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".gui.SudokuPlayActivity" >
+        </activity>
+        <activity
+            android:label="@string/game_settings"
+            android:name=".gui.GameSettingsActivity" >
+        </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".gui.FileListActivity" >
+        </activity>
+    </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+</manifest>
